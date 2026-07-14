@@ -1,0 +1,1 @@
+- [Next.js not supported as artifact type](nextjs-not-supported.md) — only expo/openscad/react-vite/slides/video-js exist; build Next.js-style requests as react-vite instead.
