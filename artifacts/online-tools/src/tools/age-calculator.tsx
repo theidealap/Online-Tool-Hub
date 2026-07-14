@@ -6,19 +6,23 @@ import { Button } from '@/components/ui/button';
 import { Calendar, CalendarDays, Hash, Clock, AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
+type AgeResult =
+  | { ok: true; years: number; months: number; days: number; totalDaysLived: number }
+  | { ok: false; error: string };
+
 export default function AgeCalculator() {
   const today = new Date().toISOString().split('T')[0];
   const [birthDate, setBirthDate] = useState('');
   const [asOfDate, setAsOfDate] = useState(today);
 
-  const result = useMemo(() => {
+  const result = useMemo((): AgeResult | null => {
     if (!birthDate || !asOfDate) return null;
 
     const bDate = new Date(birthDate);
     const aDate = new Date(asOfDate);
 
     if (bDate > aDate) {
-      return { error: 'Birth date cannot be after the "calculate as of" date.' };
+      return { ok: false, error: 'Birth date cannot be after the "calculate as of" date.' };
     }
 
     // Reset time components to ensure accurate date difference
@@ -42,7 +46,7 @@ export default function AgeCalculator() {
 
     const totalDaysLived = Math.floor((aDate.getTime() - bDate.getTime()) / (1000 * 60 * 60 * 24));
 
-    return { years, months, days, totalDaysLived };
+    return { ok: true, years, months, days, totalDaysLived };
   }, [birthDate, asOfDate]);
 
   return (
@@ -82,12 +86,17 @@ export default function AgeCalculator() {
       </div>
 
       <div className="pt-4">
-        {result?.error ? (
+        {!result ? (
+          <div className="h-48 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground text-sm flex-col gap-2">
+            <Calendar className="w-8 h-8 opacity-20" />
+            <span>Enter a birth date to calculate age</span>
+          </div>
+        ) : !result.ok ? (
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
             <AlertDescription>{result.error}</AlertDescription>
           </Alert>
-        ) : result ? (
+        ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="p-6 col-span-1 md:col-span-3 bg-primary/5 border-primary/20 text-center flex flex-col items-center justify-center py-10">
               <span className="text-sm font-medium text-muted-foreground mb-2 flex items-center gap-1.5"><Clock className="w-4 h-4" /> Exact Age</span>
@@ -110,11 +119,6 @@ export default function AgeCalculator() {
               <span className="text-sm text-muted-foreground mb-1 flex items-center gap-1"><Hash className="w-3 h-3" /> Total Days</span>
               <span className="text-3xl font-semibold">{result.totalDaysLived.toLocaleString()}</span>
             </Card>
-          </div>
-        ) : (
-          <div className="h-48 border-2 border-dashed rounded-xl flex items-center justify-center text-muted-foreground text-sm flex-col gap-2">
-            <Calendar className="w-8 h-8 opacity-20" />
-            <span>Enter a birth date to calculate age</span>
           </div>
         )}
       </div>
