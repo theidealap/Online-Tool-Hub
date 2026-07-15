@@ -19,46 +19,46 @@ export default function Terms() {
 
           <h2>Acceptance of Terms</h2>
           <p>
-            By accessing or using ToolBox (the "Service"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use the Service.
+            By using ToolBox (the "Service"), you agree to these Terms of Service. If you don't agree with them, please don't use the Service.
           </p>
 
           <h2>Description of Service</h2>
           <p>
-            ToolBox provides a collection of free, browser-based utilities for everyday calculations and text tasks. Tools run entirely on your device — no data you enter into a tool is transmitted to or stored on our servers. See our{' '}
-            <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for more detail.
+            ToolBox is a collection of free, browser-based tools for everyday calculations and text tasks. Everything runs on your device — nothing you type into a tool is sent to or stored on our servers. See our{' '}
+            <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for details.
           </p>
 
           <h2>Use of the Service</h2>
-          <p>You agree to use ToolBox only for lawful purposes. You must not:</p>
+          <p>When using ToolBox, please don't:</p>
           <ul>
-            <li>Attempt to disrupt, overload, or interfere with the normal operation of the Service.</li>
-            <li>Attempt to gain unauthorized access to any part of the Service or its underlying systems.</li>
-            <li>Use automated means to scrape or systematically extract content from the Service in a way that degrades it for other users.</li>
+            <li>Try to disrupt or overload the Service.</li>
+            <li>Attempt to gain unauthorized access to the Service or its underlying systems.</li>
+            <li>Scrape or extract content from the Service in a way that degrades it for other users.</li>
           </ul>
 
           <h2>No Professional Advice</h2>
           <p>
-            Results produced by our tools (including but not limited to calculators) are provided for general informational purposes only. They are not a substitute for professional medical, financial, legal, or other expert advice. Always consult a qualified professional for decisions that matter.
+            Results from our tools, including calculators, are for general informational purposes only and aren't a substitute for professional medical, financial, or legal advice. For decisions that matter, consult a qualified professional.
           </p>
 
           <h2>Service Availability</h2>
           <p>
-            We aim to keep ToolBox available and reliable, but we do not guarantee uninterrupted access. We may modify, suspend, or discontinue any part of the Service at any time without notice.
+            We aim to keep ToolBox available and reliable, but we can't guarantee uninterrupted access. We may modify, suspend, or discontinue any part of the Service at any time.
           </p>
 
           <h2>Disclaimer of Warranties</h2>
           <p>
-            The Service is provided "as is" and "as available" without warranties of any kind, express or implied. We do not warrant that the Service will be error-free, accurate, or fit for any particular purpose.
+            The Service is provided "as is," without warranties of any kind. We don't guarantee it will always be error-free or accurate.
           </p>
 
           <h2>Limitation of Liability</h2>
           <p>
-            To the fullest extent permitted by law, ToolBox and its operators shall not be liable for any indirect, incidental, or consequential damages arising from your use of, or inability to use, the Service.
+            To the extent permitted by law, ToolBox and its operators aren't liable for damages arising from your use of, or inability to use, the Service.
           </p>
 
           <h2>Changes to These Terms</h2>
           <p>
-            We may update these Terms of Service from time to time. Changes will be posted on this page with an updated "Last updated" date. Continued use of the Service after changes are posted constitutes acceptance of the revised terms.
+            We may update these terms from time to time. Changes will be posted here with an updated "Last updated" date. Continuing to use the Service after an update means you accept the revised terms.
           </p>
 
           <h2>Contact Us</h2>

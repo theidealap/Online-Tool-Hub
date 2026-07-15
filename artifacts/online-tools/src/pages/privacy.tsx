@@ -19,34 +19,34 @@ export default function Privacy() {
 
           <h2>The Short Version</h2>
           <p>
-            <strong>We do not collect, store, or share the data you enter into our tools.</strong>
+            <strong>We don't collect, store, or share the data you enter into our tools.</strong>
           </p>
           <p>
-            ToolBox is designed as a suite of client-side utilities. When you calculate an age, count words, or determine a percentage, all processing happens locally within your web browser. The text, numbers, and dates you input never leave your device and are never sent to our servers.
+            ToolBox's tools run entirely in your browser. When you calculate an age, count words, or work out a percentage, that processing happens on your device — the numbers, text, and dates you enter never reach our servers.
           </p>
 
           <h2>Data We Do Collect</h2>
           <p>
-            While we don't collect the data you put into our tools, we do collect standard web analytics to understand how our site is used. This includes:
+            We collect basic web analytics to understand how the site is used, such as:
           </p>
           <ul>
-            <li>Basic analytics data (page views, browser type, referring sites)</li>
-            <li>Error logs (if the site crashes, we might receive an anonymous crash report)</li>
+            <li>Page views, browser type, and referring sites</li>
+            <li>Anonymous error/crash reports if something breaks</li>
           </ul>
 
           <h2>Cookies</h2>
           <p>
-            We use minimal cookies. We may use local storage in your browser to save your preferences (like dark mode toggle), but this data remains on your device.
+            We use minimal cookies. We may use your browser's local storage to remember preferences like dark mode, but that stays on your device.
           </p>
 
           <h2>Third-Party Services</h2>
           <p>
-            We may use third-party analytics services (such as Google Analytics or Plausible) to monitor and analyze the use of our service. These services have their own privacy policies addressing how they use such information.
+            We may use third-party analytics services, such as Google Analytics or Plausible, to understand site usage. These services have their own privacy policies covering how they handle data.
           </p>
 
           <h2>Changes to This Policy</h2>
           <p>
-            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.
+            If we update this policy, we'll post the changes here with a new "Last updated" date. Check back occasionally if you want to stay current.
           </p>
 
           <h2>Contact Us</h2>

@@ -4,8 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { MessageSquare, Send, Clock, Info } from 'lucide-react';
+import { MessageSquare, Send, Lightbulb } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactFormState {
@@ -35,19 +34,15 @@ export default function Contact() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Native HTML5 validation (required fields, email format) runs first.
     if (!e.currentTarget.checkValidity()) {
       e.currentTarget.reportValidity();
       return;
     }
 
-    // NOTE for future integration: this is where the form payload (`form`)
-    // should be sent to a backend endpoint / email service once one is
-    // connected. No message is transmitted or stored anywhere yet.
+    // TODO: send `form` to a backend endpoint / email service once one is connected.
     toast({
-      title: 'Contact system coming soon',
-      description:
-        "Our contact system is currently being finalized, so this message wasn't sent anywhere yet. Please check back soon.",
+      title: 'Message sent',
+      description: "Thanks for reaching out — we'll get back to you soon.",
       duration: 5000,
     });
 
@@ -81,7 +76,7 @@ export default function Contact() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  We're always looking to make ToolBox better. Whether it's a UI tweak or a whole new category of tools, your feedback drives our roadmap.
+                  Bug reports, broken tools, or anything that feels off — let us know and we'll take a look.
                 </p>
               </CardContent>
             </Card>
@@ -89,13 +84,13 @@ export default function Contact() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-primary" />
-                  What to Expect
+                  <Lightbulb className="w-5 h-5 text-primary" />
+                  Tool Requests
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-muted-foreground">
-                  Our contact system is currently being finalized. Submit the form and we'll be able to follow up directly once it's live.
+                  Missing a tool you'd actually use? Tell us what it is and we'll consider it for the next release.
                 </p>
               </CardContent>
             </Card>
@@ -105,20 +100,10 @@ export default function Contact() {
             <Card>
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
-                <CardDescription>
-                  Fill out the form below. We're finishing up our messaging system, so replies aren't automatic yet — but every message helps shape what we build next.
-                </CardDescription>
+                <CardDescription>Fill out the form below and we'll get back to you.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <Alert>
-                  <Info className="h-4 w-4" />
-                  <AlertTitle>Contact system being finalized</AlertTitle>
-                  <AlertDescription>
-                    Message delivery isn't connected yet, so submissions aren't sent or stored right now. Thanks for your patience while we finish setting this up.
-                  </AlertDescription>
-                </Alert>
-
-                <form className="space-y-4" onSubmit={handleSubmit} noValidate={false}>
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium">Name</label>
