@@ -1,0 +1,136 @@
+We have completed Release 1.5 testing and identified a number of usability issues and bugs that need to be addressed before moving forward.
+
+Please implement the following improvements.
+
+========================================
+1. QR Code Generator
+========================================
+
+Issues:
+
+1. Input validation should match the selected QR type.
+
+Examples:
+- Email type should validate email format.
+- Phone type should only allow phone-number input.
+- URL type should validate URLs.
+- Text type can remain unrestricted.
+
+2. Remove the "Calculated" badge from this tool.
+
+This is a generator, not a calculator.
+
+3. Review the generated QR behavior for text content.
+
+If current behavior is expected browser/device behavior, no change is required, but ensure the generated QR content is correct and standards-compliant.
+
+========================================
+2. Email Signature Generator
+========================================
+
+Issues:
+
+1. Add proper field validation.
+
+Examples:
+- Email field should validate email format.
+- Phone field should validate phone numbers.
+- Website field should validate URLs.
+
+2. Remove the "Calculated" badge.
+
+This is not a calculation tool.
+
+3. Fix the broken/missing icon or image appearing in the live preview area.
+
+4. Improve usability of the preview experience.
+
+Without introducing complex customization, provide a small number of professional signature templates that users can choose from.
+
+Examples:
+- Compact
+- Professional
+- Modern
+
+Keep implementation lightweight and easy to use.
+
+========================================
+3. WhatsApp Link Generator
+========================================
+
+This tool requires a usability review.
+
+Issues:
+
+1. Replace the current limited country list with a comprehensive international country code selector.
+
+Requirements:
+- Include all major global countries.
+- Include all Arab countries.
+- Searchable country selector.
+- Show country name, flag, and dialing code.
+- Sort countries alphabetically.
+- Default selection should be Saudi Arabia (+966).
+- Use a complete international country dataset rather than a manually maintained shortlist.
+
+2. Improve the overall UX and explain the purpose of the tool.
+
+Add a short description explaining real-world use cases such as:
+- Business contact links
+- Customer support links
+- QR codes for stores
+- Social media contact buttons
+- Marketing campaigns
+- Personal contact cards
+
+3. Ensure generated links work correctly for Saudi numbers and international numbers.
+
+4. Verify QR codes open the exact generated WhatsApp link.
+
+5. Add a generated-link preview area so users can see exactly what URL is being created.
+
+6. Review the current workflow and make it feel like a practical business tool rather than a technical demo.
+
+========================================
+4. Countdown To Date
+========================================
+
+This tool has functional issues.
+
+Please investigate and fix:
+
+1. Shareable countdown links are not working correctly.
+
+2. Countdown state is lost after refresh.
+
+3. Ensure countdown data persists correctly when opening a shared URL.
+
+4. Improve countdown presentation by clearly showing:
+- Target date
+- Remaining days
+- Remaining hours
+- Remaining minutes
+- Remaining seconds
+
+5. Verify countdown behavior for:
+- Future dates
+- Past dates
+- Browser refresh
+- Shared links
+
+========================================
+General
+========================================
+
+1. Verify all fixes in desktop and mobile layouts.
+
+2. Run typecheck.
+
+3. Run production build.
+
+4. Test all affected tools before completion.
+
+5. Commit all changes and provide:
+- Commit ID
+- Summary of fixes
+- Any remaining limitations or recommendations

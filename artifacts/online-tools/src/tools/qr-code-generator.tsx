@@ -7,10 +7,11 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Download, Trash2, QrCode as QrCodeIcon } from 'lucide-react';
+import { Download, Trash2, QrCode as QrCodeIcon, AlertCircle } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ToolEmptyState } from '@/components/tool-empty-state';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 import { useToast } from '@/hooks/use-toast';
+import { isValidEmail, isValidPhone, isValidUrl } from '@/lib/validators';
 
 type ContentType = 'text' | 'url' | 'email' | 'phone';
 
@@ -37,16 +38,45 @@ export default function QrCodeGenerator() {
     }
   })();
 
+  const validationError = (() => {
+    if (!rawValue) return null;
+    switch (contentType) {
+      case 'url':
+        return isValidUrl(rawValue) ? null : 'Enter a valid website URL, e.g. example.com or https://example.com.';
+      case 'email':
+        return isValidEmail(rawValue) ? null : 'Enter a valid email address, e.g. name@example.com.';
+      case 'phone':
+        return isValidPhone(rawValue) ? null : 'Enter a valid phone number using digits, spaces, or +, -, ( ).';
+      default:
+        return null;
+    }
+  })();
+
+  const isValid = !!rawValue && !validationError;
+
+  // Phone input is restricted at the character level so users can't type
+  // letters into a field that only ever produces a `tel:` QR payload.
+  const handlePhoneChange = (value: string) => {
+    setPhone(value.replace(/[^\d\s+\-().]/g, ''));
+  };
+
   const encodedValue = (() => {
-    if (!rawValue) return '';
+    if (!isValid) return '';
     switch (contentType) {
       case 'url':
         return /^https?:\/\//i.test(rawValue) ? rawValue : `https://${rawValue}`;
       case 'email':
+        // mailto: is the standards-compliant QR payload for an email
+        // address — scanning apps open the device's mail client with the
+        // address pre-filled, which is the expected behavior.
         return `mailto:${rawValue}`;
       case 'phone':
-        return `tel:${rawValue}`;
+        // tel: is the standards-compliant QR payload for a phone number —
+        // scanning apps open the dialer pre-filled with the number, which is
+        // expected behavior, not a bug.
+        return `tel:${rawValue.replace(/[\s().-]/g, '')}`;
       default:
+        // Plain text is encoded verbatim, exactly as entered.
         return rawValue;
     }
   })();
@@ -127,12 +157,19 @@ export default function QrCodeGenerator() {
             id="qr-phone"
             type="tel"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => handlePhoneChange(e.target.value)}
             placeholder="+1 555 123 4567"
             className="h-12"
           />
         </TabsContent>
       </Tabs>
+
+      {validationError && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>{validationError}</AlertDescription>
+        </Alert>
+      )}
 
       <div className="space-y-2">
         <div className="flex justify-between items-center">
@@ -151,10 +188,9 @@ export default function QrCodeGenerator() {
 
       <div className="pt-2">
         {!encodedValue ? (
-          <ToolEmptyState icon={QrCodeIcon} message="Enter content to generate a QR code" className="h-64" />
+          <ToolEmptyState icon={QrCodeIcon} message="Enter valid content to generate a QR code" className="h-64" />
         ) : (
           <Card className="relative p-6 bg-primary/5 border-primary/20 flex flex-col items-center gap-4">
-            <ToolResultBadge />
             <div className="bg-white rounded-lg p-4 shadow-sm">
               <canvas ref={canvasRef} data-testid="canvas-qr-code" />
             </div>
