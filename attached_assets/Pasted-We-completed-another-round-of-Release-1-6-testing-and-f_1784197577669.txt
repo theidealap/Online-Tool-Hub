@@ -1,0 +1,117 @@
+We completed another round of Release 1.6 testing and found a few remaining issues that need to be resolved before we move on to SEO and content work.
+
+Please investigate and implement the following fixes.
+
+========================================
+1. Countdown To Date
+========================================
+
+This is the highest-priority issue.
+
+Problem:
+
+The countdown itself works correctly, but opening a shared countdown URL or refreshing the page results in a Vercel 404 page instead of loading the application.
+
+Example:
+
+https://online-tool-4u945rjrn-online-tool-hub.vercel.app/tools/countdown-to-date?target=1784223840000
+
+Current Result:
+404: NOT_FOUND
+Code: NOT_FOUND
+
+Expected Result:
+The React/Vite application should load normally, restore the countdown state, and display the correct countdown.
+
+Please investigate the root cause.
+
+Most likely areas to review:
+- Vite SPA routing
+- Vercel deployment configuration
+- Deep-link handling
+- Refresh behavior on nested routes
+- Rewrite/fallback configuration
+
+Requirements:
+- Shared countdown URLs must work.
+- Direct navigation to countdown URLs must work.
+- Browser refresh must work.
+- Countdown state must still restore correctly.
+
+Verify the fix on the deployed production route structure.
+
+========================================
+2. QR Code Generator
+========================================
+
+Issue:
+
+The URL validation appears too restrictive.
+
+Example:
+
+Accepted:
+https://google.com
+
+Rejected:
+https://web.whatsapp.com
+
+Both are valid URLs and should be accepted.
+
+Requirements:
+- Review URL validation logic.
+- Accept valid HTTPS and HTTP URLs.
+- Keep protection against obviously invalid inputs.
+- Do not reject valid domains or subdomains.
+
+========================================
+3. Generator Badges
+========================================
+
+Issue:
+
+The "Calculated" badge is still appearing on generator tools.
+
+These are not calculation tools.
+
+Please remove any remaining "Calculated" badges from:
+
+- QR Code Generator
+- WhatsApp Link Generator
+- Email Signature Generator
+
+If any similar generator tools also display this badge, remove it there as well.
+
+========================================
+4. Email Signature Generator
+========================================
+
+Issue:
+
+The following helper text is still displayed:
+
+"If the logo can't load, your initials are shown instead — both here and in the copied signature."
+
+This implementation is fine technically, but the message adds unnecessary UI clutter.
+
+Requirement:
+- Remove this message from the interface.
+- Keep the fallback functionality itself intact.
+
+========================================
+Verification
+========================================
+
+After implementing:
+
+1. Run typecheck.
+2. Run production build.
+3. Verify desktop and mobile layouts.
+4. Verify countdown links by opening a shared URL directly.
+5. Verify countdown links after browser refresh.
+6. Commit all changes.
+
+Please provide:
+- Commit ID
+- Summary of fixes
+- Any remaining limitations or recommendations

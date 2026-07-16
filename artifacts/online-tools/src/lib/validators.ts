@@ -26,7 +26,9 @@ export function isValidUrl(value: string): boolean {
   const candidate = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
   try {
     const url = new URL(candidate);
-    return /^[^.\s]+\.[a-z]{2,}$/i.test(url.hostname) || url.hostname === 'localhost';
+    // Accept any hostname that has at least one dot (covers subdomains like
+    // web.whatsapp.com) and no whitespace, or localhost for dev convenience.
+    return url.hostname === 'localhost' || /^[^\s.]+(\.[^\s.]+)+$/.test(url.hostname);
   } catch {
     return false;
   }

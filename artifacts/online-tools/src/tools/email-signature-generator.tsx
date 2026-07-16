@@ -203,7 +203,7 @@ export default function EmailSignatureGenerator() {
           <Label htmlFor="sig-logo">Logo URL (optional)</Label>
           <Input id="sig-logo" value={fields.logoUrl} onChange={updateField('logoUrl')} placeholder="https://acme.com/logo.png" className="h-12" aria-invalid={!!errors.logoUrl} />
           {errors.logoUrl && <p className="text-xs text-destructive">{errors.logoUrl}</p>}
-          <p className="text-xs text-muted-foreground">If the logo can't load, your initials are shown instead — both here and in the copied signature.</p>
+
         </div>
       </div>
 

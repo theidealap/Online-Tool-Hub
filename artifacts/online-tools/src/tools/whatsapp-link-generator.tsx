@@ -17,7 +17,6 @@ import {
 import { MessageCircle, Copy, ExternalLink, ChevronsUpDown, Check, AlertCircle, Store, Headset, Megaphone, Contact } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ToolEmptyState } from '@/components/tool-empty-state';
-import { ToolResultBadge } from '@/components/tool-result-badge';
 import { useToast } from '@/hooks/use-toast';
 import { countries, findCountryByIso2, DEFAULT_COUNTRY_ISO2 } from '@/lib/countries';
 import { cn } from '@/lib/utils';
@@ -153,8 +152,7 @@ export default function WhatsAppLinkGenerator() {
         {!link ? (
           <ToolEmptyState icon={MessageCircle} message="Enter a phone number to generate a WhatsApp link" className="h-56" />
         ) : (
-          <Card className="relative p-6 bg-primary/5 border-primary/20 flex flex-col items-center gap-4">
-            <ToolResultBadge />
+          <Card className="p-6 bg-primary/5 border-primary/20 flex flex-col items-center gap-4">
             <div className="bg-white rounded-lg p-3 shadow-sm">
               <canvas ref={canvasRef} data-testid="canvas-whatsapp-qr" />
             </div>
