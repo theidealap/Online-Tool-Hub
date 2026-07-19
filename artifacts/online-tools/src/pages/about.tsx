@@ -7,8 +7,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About ToolBox - Free, Fast Online Utilities"
-        description="ToolBox is a collection of free, browser-based tools for everyday calculations and tasks."
+        title="About ToolBox - Free Browser-Based Utilities, No Sign-Up Required"
+        description="ToolBox is a free collection of browser-based calculators and utilities that run entirely on your device. No account needed, no data collected, instant results."
       />
 
       <div className="container mx-auto px-4 py-16 max-w-4xl">

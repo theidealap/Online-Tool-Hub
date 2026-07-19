@@ -4,9 +4,9 @@ import { Link } from 'wouter';
 export default function Privacy() {
   return (
     <>
-      <SEO 
-        title="Privacy Policy - ToolBox" 
-        description="Our privacy policy. Learn how ToolBox handles your data (spoiler: we don't collect it)."
+      <SEO
+        title="Privacy Policy - ToolBox"
+        description="ToolBox does not collect or store any data you enter into its tools. All calculations run locally in your browser. Read our full privacy policy."
       />
       
       <div className="container mx-auto px-4 py-16 max-w-3xl">

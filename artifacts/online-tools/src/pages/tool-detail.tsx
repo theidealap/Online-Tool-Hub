@@ -24,8 +24,8 @@ export default function ToolDetail() {
   return (
     <>
       <SEO 
-        title={`${tool.name} - ToolBox`} 
-        description={tool.shortDescription}
+        title={`${tool.name} - Free Online Tool | ToolBox`} 
+        description={tool.longDescription ?? tool.shortDescription}
       />
       
       <div className="container mx-auto px-4 py-8 max-w-5xl">

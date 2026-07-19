@@ -6,7 +6,7 @@ export default function Terms() {
     <>
       <SEO
         title="Terms of Service - ToolBox"
-        description="The terms and conditions for using ToolBox's free online utilities."
+        description="Terms and conditions for using ToolBox's free online calculators and utilities. Tools are provided as-is for informational purposes."
       />
 
       <div className="container mx-auto px-4 py-16 max-w-3xl">
