@@ -1,0 +1,65 @@
+Implement the following improvements and provide a summary of all changes before deployment.
+
+1. Open Graph Image
+- Create a branded og-image.png (1200x630)
+- Use ToolBox branding and a professional design
+- Ensure all Open Graph and Twitter Card tags reference the image correctly
+- Verify the image loads directly via /og-image.png
+
+2. Privacy Policy Fix
+- Update privacy policy to accurately reflect actual analytics usage
+- Remove references to Google Analytics and Plausible
+- Mention only Vercel Analytics if applicable
+
+3. Security Headers
+Add the following headers through vercel.json:
+
+- X-Content-Type-Options: nosniff
+- X-Frame-Options: SAMEORIGIN
+- Referrer-Policy: strict-origin-when-cross-origin
+- Permissions-Policy with a restrictive default policy
+
+Verify they are returned in production responses.
+
+4. Internal Linking
+Improve internal linking by adding links to the most important tools in the footer:
+- Age Calculator
+- BMI Calculator
+- Percentage Calculator
+- GPA Calculator
+- QR Code Generator
+
+Keep the design clean and consistent.
+
+5. SEO Titles
+Rewrite all tool page titles using keyword-focused SEO patterns.
+
+Examples:
+- Free Age Calculator – Calculate Your Exact Age Online | ToolBox
+- Free BMI Calculator – Metric & Imperial BMI Checker | ToolBox
+
+Apply an optimized title for every tool page.
+
+6. Meta Descriptions
+Rewrite all tool page meta descriptions to:
+- Be approximately 140–160 characters
+- Include important keywords
+- Include a clear user benefit
+- Avoid duplicate wording across tools
+
+7. Breadcrumb Schema
+Add BreadcrumbList JSON-LD schema for all tool pages.
+
+Example:
+Home > Age Calculator
+
+Validate the schema implementation.
+
+8. Validation
+After implementation:
+- Verify Rich Results Test still passes
+- Verify structured data remains valid
+- Verify sitemap.xml and robots.txt are unaffected
+- Verify no broken links are introduced
+
+Provide a report of all changes and validation results before deployment.

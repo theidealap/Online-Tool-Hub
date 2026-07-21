@@ -41,7 +41,8 @@ export default function Privacy() {
 
           <h2>Third-Party Services</h2>
           <p>
-            We may use third-party analytics services, such as Google Analytics or Plausible, to understand site usage. These services have their own privacy policies covering how they handle data.
+            We use <strong>Vercel Analytics</strong> to understand site usage (page views, browser type, and referring sites). Vercel Analytics is privacy-focused: it does not use cookies, does not track individuals across sites, and does not sell data.{' '}
+            <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Vercel's privacy policy</a> covers how this data is handled.
           </p>
 
           <h2>Changes to This Policy</h2>

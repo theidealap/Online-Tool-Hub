@@ -3,7 +3,7 @@ import { toolsRegistry } from '@/lib/tools-registry';
 import { Suspense } from 'react';
 import { ArrowLeft, Hammer } from 'lucide-react';
 import { SEO } from '@/components/seo';
-import { JsonLd, buildSoftwareAppSchema } from '@/components/json-ld';
+import { JsonLd, buildSoftwareAppSchema, buildBreadcrumbSchema } from '@/components/json-ld';
 import { Skeleton } from '@/components/ui/skeleton';
 import NotFound from '@/pages/not-found';
 
@@ -24,19 +24,23 @@ export default function ToolDetail() {
 
   return (
     <>
-      <SEO 
-        title={`${tool.name} - Free Online Tool | ToolBox`} 
-        description={tool.longDescription ?? tool.shortDescription}
+      <SEO
+        title={tool.seoTitle}
+        description={tool.seoDescription}
       />
       <JsonLd
         id={`tool-${tool.slug}`}
         schema={buildSoftwareAppSchema({
           name: tool.name,
-          description: tool.longDescription ?? tool.shortDescription,
+          description: tool.seoDescription,
           slug: tool.slug,
         })}
       />
-      
+      <JsonLd
+        id={`breadcrumb-${tool.slug}`}
+        schema={buildBreadcrumbSchema({ name: tool.name, slug: tool.slug })}
+      />
+
       <div className="container mx-auto px-4 py-8 max-w-5xl">
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group">
@@ -64,7 +68,7 @@ export default function ToolDetail() {
               </div>
             </div>
           </div>
-          
+
           <div className="space-y-6">
             <div className="bg-card border rounded-xl p-6 shadow-sm">
               <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
@@ -75,7 +79,7 @@ export default function ToolDetail() {
                 {tool.longDescription || tool.shortDescription}
               </p>
             </div>
-            
+
             <div className="bg-card border rounded-xl p-6 shadow-sm">
               <h3 className="font-semibold text-lg mb-3">Related Tools</h3>
               <div className="space-y-3">
@@ -83,8 +87,8 @@ export default function ToolDetail() {
                   .filter(t => t.category === tool.category && t.slug !== tool.slug)
                   .slice(0, 3)
                   .map(relatedTool => (
-                    <Link 
-                      key={relatedTool.slug} 
+                    <Link
+                      key={relatedTool.slug}
                       href={`/tools/${relatedTool.slug}`}
                       className="block p-3 rounded-lg hover:bg-secondary border border-transparent hover:border-border transition-colors group"
                     >

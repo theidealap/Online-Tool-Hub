@@ -88,3 +88,25 @@ export function buildSoftwareAppSchema(opts: {
     },
   };
 }
+
+/** Schema.org BreadcrumbList for tool pages: Home > Tool Name. */
+export function buildBreadcrumbSchema(opts: { name: string; slug: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: opts.name,
+        item: `${SITE_URL}/tools/${opts.slug}`,
+      },
+    ],
+  };
+}
