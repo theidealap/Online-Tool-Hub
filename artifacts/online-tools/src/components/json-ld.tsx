@@ -167,7 +167,13 @@ export function buildCategorySchema(opts: {
       name: tool.name,
       url: `${SITE_URL}/tools/${tool.slug}`,
       applicationCategory: 'UtilityApplication',
+      operatingSystem: 'Web',
       isAccessibleForFree: true,
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
     })),
   };
 }
