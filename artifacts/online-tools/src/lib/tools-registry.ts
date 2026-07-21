@@ -216,4 +216,64 @@ export const toolsRegistry: ToolEntry[] = [
     category: 'Date & Time',
     component: lazy(() => import('@/tools/countdown-to-date')),
   },
+  {
+    slug: 'password-generator',
+    name: 'Password Generator',
+    shortDescription: 'Generate a secure random password with custom length and character sets.',
+    longDescription:
+      'Create cryptographically random passwords of any length (4–64 characters). Choose uppercase, lowercase, numbers, and symbols, with a real-time strength indicator.',
+    seoTitle: 'Free Password Generator – Strong Random Passwords Online | ToolBox',
+    seoDescription:
+      'Generate a secure random password instantly. Choose length (4–64) and character sets (letters, numbers, symbols). No tracking, runs entirely in your browser.',
+    category: 'Generators',
+    component: lazy(() => import('@/tools/password-generator')),
+  },
+  {
+    slug: 'date-difference-calculator',
+    name: 'Date Difference Calculator',
+    shortDescription: 'Find the exact number of days, weeks, months, and years between two dates.',
+    longDescription:
+      'Pick any two dates to see the precise difference broken down into years, months, and days — plus total days, total weeks, and total hours.',
+    seoTitle: 'Free Date Difference Calculator – Days Between Two Dates | ToolBox',
+    seoDescription:
+      'Calculate the exact difference between two dates in years, months, days, weeks, and hours. Free online date difference calculator — no sign-up needed.',
+    category: 'Date & Time',
+    component: lazy(() => import('@/tools/date-difference-calculator')),
+  },
+  {
+    slug: 'discount-calculator',
+    name: 'Discount Calculator',
+    shortDescription: 'Calculate sale price, savings, and discount percentage instantly.',
+    longDescription:
+      'Enter an original price and a discount percentage to see the sale price and total savings — or enter both prices to find the discount percentage.',
+    seoTitle: 'Free Discount Calculator – Sale Price & Savings | ToolBox',
+    seoDescription:
+      'Calculate the sale price and savings from a percentage off, or find the discount % from two prices. Fast, free online discount calculator.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/discount-calculator')),
+  },
+  {
+    slug: 'tip-calculator',
+    name: 'Tip Calculator',
+    shortDescription: 'Calculate tip amount, total bill, and per-person split instantly.',
+    longDescription:
+      'Enter your bill, choose a tip percentage (or use a preset), and split between any number of people to see the tip per person and total per person.',
+    seoTitle: 'Free Tip Calculator – Split Bill & Calculate Tip | ToolBox',
+    seoDescription:
+      'Calculate the tip on any bill and split it between any number of people. Preset tip buttons for 10%, 15%, 18%, 20%, and 25%. Free online tip calculator.',
+    category: 'Calculators',
+    component: lazy(() => import('@/tools/tip-calculator')),
+  },
+  {
+    slug: 'text-case-converter',
+    name: 'Text Case Converter',
+    shortDescription: 'Convert text to UPPER, lower, Title, camelCase, snake_case and more.',
+    longDescription:
+      'Paste any text and instantly see it converted into 11 case formats — including UPPER CASE, lower case, Title Case, Sentence case, camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE, dot.case, and aLtErNaTiNg. Copy any result with one click.',
+    seoTitle: 'Free Text Case Converter – camelCase, snake_case, Title Case & More | ToolBox',
+    seoDescription:
+      'Convert text to any case format: UPPER, lower, Title, Sentence, camelCase, PascalCase, kebab-case, snake_case, CONSTANT_CASE and more. Free, instant, no sign-up.',
+    category: 'Text Tools',
+    component: lazy(() => import('@/tools/text-case-converter')),
+  },
 ];
