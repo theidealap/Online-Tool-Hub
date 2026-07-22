@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quickaway.app/sitemap.xml
+Sitemap: https://www.quickaway.app/sitemap.xml
