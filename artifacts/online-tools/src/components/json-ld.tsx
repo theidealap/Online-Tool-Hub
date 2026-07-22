@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { SITE_URL, SITE_NAME } from '@/components/seo';
 import { AUTHOR_NAME, PUBLISHER_NAME } from '@/lib/author';
 
-// Canonical logo URL — update to a full-resolution PNG when one is available.
-const LOGO_URL = `${SITE_URL}/favicon.ico`;
+// Canonical publisher logo — 1024×1024 PNG, white background, served from /public.
+// Used in Organization, Article publisher, and WebPage schemas.
+const LOGO_URL = `${SITE_URL}/logo.png`;
 
 // ── Generic renderer ─────────────────────────────────────────────────────────
 
