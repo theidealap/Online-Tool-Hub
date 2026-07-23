@@ -90,6 +90,11 @@ export default function ToolDetail() {
               <p className="text-muted-foreground text-sm md:text-base">
                 {tool.shortDescription}
               </p>
+              {tool.longDescription && (
+                <p className="text-muted-foreground text-sm md:text-base mt-2 leading-relaxed">
+                  {tool.longDescription}
+                </p>
+              )}
             </div>
 
             {/* Tool component renders directly in the page */}
