@@ -9,6 +9,8 @@ interface SEOProps {
   description: string;
   /** Absolute URL to an OG image. Defaults to the site-wide OG image. */
   ogImage?: string;
+  /** robots meta content. Defaults to "index, follow". */
+  robots?: string;
 }
 
 /** Set or create a <meta> tag identified by an attribute selector. */
@@ -38,7 +40,7 @@ function setLink(rel: string, href: string) {
   el.setAttribute('href', href);
 }
 
-export function SEO({ title, description, ogImage }: SEOProps) {
+export function SEO({ title, description, ogImage, robots }: SEOProps) {
   const [location] = useLocation();
 
   useEffect(() => {
@@ -51,6 +53,7 @@ export function SEO({ title, description, ogImage }: SEOProps) {
 
     // ── Standard meta ────────────────────────────────────────────────────────
     setMeta('meta[name="description"]', 'name', 'description', description);
+    setMeta('meta[name="robots"]', 'name', 'robots', robots ?? 'index, follow');
 
     // ── Canonical link ───────────────────────────────────────────────────────
     setLink('canonical', canonicalUrl);

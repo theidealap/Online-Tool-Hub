@@ -41,7 +41,7 @@ export function JsonLd({ id, schema }: JsonLdProps) {
 
 // ── Schema builders ───────────────────────────────────────────────────────────
 
-/** Schema.org WebSite with sitelinks SearchAction. */
+/** Schema.org WebSite. */
 export function buildWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
@@ -50,14 +50,6 @@ export function buildWebsiteSchema() {
     url: SITE_URL,
     description:
       'Free online tools for calculations, conversions, productivity and everyday use.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/?search={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -72,7 +64,6 @@ export function buildOrganizationSchema() {
       '@type': 'ImageObject',
       url: LOGO_URL,
     },
-    sameAs: [SITE_URL],
   };
 }
 
@@ -91,6 +82,10 @@ export function buildSoftwareAppSchema(opts: {
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Web Browser',
     isAccessibleForFree: true,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+    },
     offers: {
       '@type': 'Offer',
       price: '0',
