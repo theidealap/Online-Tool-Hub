@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 
-export const SITE_URL = 'https://quickaway.app';
+export const SITE_URL = 'https://www.quickaway.app';
 export const SITE_NAME = 'QuickAway';
 
 interface SEOProps {
