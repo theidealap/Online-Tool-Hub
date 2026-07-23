@@ -124,7 +124,7 @@ export function Footer() {
 
         <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} QuickAway. All rights reserved.</p>
-          <p>Free tools. No sign-up. No tracking.</p>
+          <p>Free tools. No sign-up. Built for everyone.</p>
         </div>
       </div>
     </footer>

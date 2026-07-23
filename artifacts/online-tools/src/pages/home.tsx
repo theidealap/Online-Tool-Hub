@@ -51,7 +51,7 @@ export default function Home() {
           </h1>
           <p className="text-muted-foreground text-base md:text-lg mb-6 leading-relaxed">
             Fast, browser-based utilities for everyday calculations, conversions, and text tasks.
-            No sign-up. No ads. Always free.
+            No sign-up. Always free.
           </p>
 
           {/* Search */}
