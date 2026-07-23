@@ -77,7 +77,7 @@ Minor changes such as correcting typographical errors or improving sentence clar
     heading: 'Editorial Independence',
     body: `QuickAway has no sponsored content, affiliate links inside guides, or pay-to-publish arrangements. All tools and guides are produced independently, based solely on what is useful to readers.
 
-The site displays advertising (served by Google AdSense). Advertising does not influence which tools are built, which topics are covered, or the content of any guide.`,
+The site may display third-party advertising (such as Google AdSense) to support our operations. Advertising does not influence which tools are built, which topics are covered, or the content of any guide.`,
   },
   {
     id: 'contact',
